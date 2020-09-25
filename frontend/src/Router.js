@@ -2,7 +2,9 @@ import React from 'react'
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
 import LoginPage from './Components/zPages/LoginPage';
 import RegisterPage from './Components/zPages/RegisterPage';
-import TestPage from './Components/zPages/TestPage';
+import HomePage from './Components/Templates/t-Home';
+import VideoPage from './Components/zPages/VideoPage';
+import CreateVideo from './Components/zPages/CreateVideo';
 
 const Routes = () => {
     return (
@@ -10,7 +12,9 @@ const Routes = () => {
         <Switch>
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/Register" component={RegisterPage} />
-          <Route exact path="/test" component={TestPage} />
+          <Route exact path="/home" component={HomePage} />
+          <Route exact path="/Video/:id" component={VideoPage} />
+          <Route exact path="/Upload" component={CreateVideo} />
         </Switch>
       </BrowserRouter>
     )

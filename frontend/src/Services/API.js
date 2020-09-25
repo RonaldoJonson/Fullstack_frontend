@@ -39,13 +39,13 @@ export default class SimpleRestAPI {
         );
     }
 
-    async SendRequest(method, url, callback, body){  
-        console.log(body);      
+    async SendRequest(method, url, callback, body){       
         axios.request({
             method: method,
             data: body,
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "authorization": localStorage.getItem("token")
             },
             url: url
         }) 
@@ -58,7 +58,7 @@ export default class SimpleRestAPI {
         .catch(err => {
             console.log(err);
             callback({
-                status: 400,
+                status: err.status,
                 data: err,
             });
         });

@@ -1,9 +1,7 @@
 import SimpleRestAPI from './API';
 
-export const Login = (email, password) => {
+export const Login = (email, password, callback) => {
     const api = new SimpleRestAPI(); 
-
-    console.log(email, password);
 
     const body = {
         "email": email,
@@ -12,14 +10,16 @@ export const Login = (email, password) => {
     
     api.PostData('/login', body, (response) => {
         console.log(response);
+        if(response.status < 300){
+            callback();
+            localStorage.setItem("token", response.data.token);
+        }
     })
 }
 
 
-export const Register = (name, email, password) => {
+export const Register = (name, email, password, callback) => {
     const api = new SimpleRestAPI(); 
-    
-    console.log(name, email, password);
 
     const body = {
         "name": name,
@@ -29,5 +29,8 @@ export const Register = (name, email, password) => {
 
     api.PostData('/signup', body, (response) => {
         console.log(response);
+        if(response.status < 300){
+            callback();
+        }
     })
 }
