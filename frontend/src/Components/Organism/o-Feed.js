@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
-import {M_Video_Miniature} from '../Molecules/m-videoMiniature';
+import styled from 'styled-components';
 
-export function O_Feed_Basic (props) {
+
+export function O_Feed_Grid (props) {
     return (
     <div>  
-        {
-        props.feed.map(video => {
-            return <M_Video_Miniature key={video.title} video={video} />
-        })
-        }
+        
     </div>
     )
 }
 
-//
+export function O_Feed_Line (props) {
+    return (
+    <div>  
+        
+    </div>
+    )
+}

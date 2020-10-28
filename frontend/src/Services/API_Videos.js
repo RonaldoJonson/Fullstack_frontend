@@ -11,6 +11,17 @@ export const GetFeed = (callback) => {
     })
 }
 
+export const GetSideVideos = (callback) => {
+    const api = new SimpleRestAPI(); 
+
+    api.GetData('/video', (response) => {
+        console.log(response);
+        if(response.status < 300){
+            callback(response.data);
+        }
+    })
+}
+
 export const GetVideoById = (id, callback) => {
     const api = new SimpleRestAPI(); 
 
