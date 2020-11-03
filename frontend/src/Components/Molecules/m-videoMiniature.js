@@ -33,3 +33,42 @@ export function M_Video_Miniature (props) {
     </div> 
 }
 
+export function M_Video_CompactMiniature (props) {
+
+    const video = props.video;
+    const history = useHistory();
+
+    const NextPage = (id) => {
+        history.push("/video/" + id);
+    };
+
+    return <div key={video.title + '_mini'} id={video.id} draggable={true} onDragStart={DragStart} onDragOver={DragOverCard} style={{marginBottom:"10px", width:"100%", height:'110px'}}>
+        <div style={{display:"flex", width:"100%", height:'100%', justifyContent:'space-between'}}>
+            <img src='https://picsum.photos/300/200' draggable={false} style={{width:'37%', height:'100%'}}/>
+            <div style={{display:"flex", justifyContent:'space-between', alignItems:'start', width:'60%', height:'100%'}}>
+                <div style={{display:"flex", width:'100%', height:'100%', flexDirection:'column'}}>
+                    <A_Typography_Title text={video.title}/>
+                    <div style={{marginBottom:'10px'}}></div>
+                    <A_Typography_SubTitle text={video.title}></A_Typography_SubTitle>
+                </div>
+                <A_Button_Icon icon={<A_MenuIcon/>}/>
+            </div>
+        </div>
+    </div> 
+}
+
+const DragStart = e => {
+    const target = e.target;
+    console.log(target);
+    e.dataTransfer.setData('card_id', target.id);
+
+    setTimeout(() => {
+        target.style.display='none';
+    }, 0);
+}
+
+const DragOverCard = e => {
+    e.stopPropagation();
+}
+
+

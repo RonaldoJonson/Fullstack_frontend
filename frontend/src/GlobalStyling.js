@@ -24,16 +24,6 @@ body, input, button {
   font-size: 1rem;
 }
 
-h1{
-  color:#00CE7C;
-  font-size: 1.2rem;
-}
-
-p{
-  color:#00CE7C;
-  font-size: 1.2rem;
-}
-
 Input, select, button{
   color: #1A1E23;
   background: #FFFFFF;
